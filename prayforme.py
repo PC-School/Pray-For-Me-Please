@@ -4,7 +4,7 @@ from telebot import types
 
 user_data = {}
 
-bot = telebot.TeleBot('7916731915:AAHZxwTk_wDzb7vbmOhylKg8rVnjuZ2KF0Y')
+bot = telebot.TeleBot('7839745229:AAGj_wwKyuRtVEc23RzZ3I8d1ZgsBXX0qgA')
 #/main
 
 #start
