@@ -18,12 +18,11 @@ def start(message):
 	btn = types.InlineKeyboardMarkup()
 	btn.row(types.InlineKeyboardButton("Молитва", callback_data='prayer'), types.InlineKeyboardButton("Свидетельство", callback_data='testimony'))
 	btn.row(types.InlineKeyboardButton("История покаяния", callback_data='repentance'), types.InlineKeyboardButton("Исповедь", callback_data='confession'))
-	bot.send_message(message.chat.id, '<b>Мир вам! 👼\n\nЕсли есть молитвенная нужда, нажмите на кнопку "Молитва" или напишите <code>/молитва</code> или /prayer\n\nЕсли хотите поделиться свидетельством, нажмите на кнопку "Свидетельство" или напишите <code>/свидетельство</code> или /testimony\n\nЕсли хотите рассказать историю о том, как вы пришли к Богу и покаялись, нажмите на кнопку "История покаяния" или напишите <code>/историяпокаяния</code> или /storyrepentance\n\nЕсли хотите исповедовать свой грех, нажмите на кнопку "Исповедь" или напишите <code>/исповедь</code> или /confession</b>', parse_mode='HTML', reply_markup=btn)
+	bot.send_message(message.chat.id, '<b>Мир вам! 👼\n\nЕсли есть молитвенная нужда, нажмите на кнопку "Молитва"\n\nЕсли хотите поделиться свидетельством, нажмите на кнопку "Свидетельство"\n\nЕсли хотите рассказать историю о том, как вы пришли к Богу и покаялись, нажмите на кнопку "История покаяния"\n\nЕсли хотите исповедовать свой грех, нажмите на кнопку "Исповедь"</b>', parse_mode='HTML', reply_markup=btn)
 	bot.send_message(message.chat.id, '<b>ЕСЛИ ВЫ ЗАМЕТИЛИ КАКОЙ-ТО БАГ ИЛИ ВОЗНИКЛИ ТРУДНОСТИ, ПИШИТЕ @alonagd17</b>', parse_mode='HTML')
 #/start
 
 #need
-@bot.message_handler(commands=['молитва', 'prayer'])
 def asknameprayer(message):
 	bot.send_message(message.chat.id, '<b>Имя человека, за которого нужно помолиться: </b>', parse_mode='HTML')
 	bot.register_next_step_handler(message, need)
@@ -42,7 +41,6 @@ def send_need(message):
 #/need
 
 #testimony
-@bot.message_handler(commands=['свидетельство', 'testimony'])
 def asknametestimony(message):
 	bot.send_message(message.chat.id, '<b>Имя человека, о котором это свидетельство: </b>', parse_mode='HTML')
 	bot.register_next_step_handler(message, testimony)
@@ -61,7 +59,6 @@ def send_testimony(message):
 #/testimony
 
 #repentance
-@bot.message_handler(commands=['историяпокаяния', 'storyrepentance'])
 def asknamerepentance(message):
 	bot.send_message(message.chat.id, '<b>Имя покаявшегося человека: </b>', parse_mode='HTML')
 	bot.register_next_step_handler(message, repentance)
@@ -80,7 +77,6 @@ def send_repentance(message):
 #/repentance
 
 #confession
-@bot.message_handler(commands=['исповедь', 'confession'])
 def asknameconfession(message):
 	bot.send_message(message.chat.id, '<b>Имя человека, который исповедуется: </b>', parse_mode='HTML')
 	bot.register_next_step_handler(message, confession)
@@ -94,8 +90,8 @@ def confession(message):
 def send_confession(message):
 	confession = message.text.strip()
 	name = user_data.get(message.chat.id, {}).get('name', 'Не указано')
-	bot.send_message(message.chat.id, '<b>Ваша исповедь записана, вы можете увидеть её <a href="https://t.me/PrayForMePleaseChannel">В МОЛИТВЕННОМ КАНАЛЕ</a> 👼. А так же вы можете помолиться за других, как сказано:</b> \n\n<blockquote>Признавайтесь друг пред другом в проступках и молитесь друг за друга, чтобы исцелиться: много может усиленная молитва праведного.\n\nПослание Иакова 5:16</blockquote>', parse_mode='HTML', disable_web_page_preview=True)
-	bot.send_message(-1002278314632, f"<b>Исповедание греха:\n\nИмя: </b><i>{name}</i>\n\n<b>Исповедь: </b><i>{confession}</i>", parse_mode='HTML')
+	bot.send_message(message.chat.id, '<b>Ваша исповедь записана и передана админу 👼. Вы можете помолиться за других, как сказано:</b> \n\n<blockquote>Признавайтесь друг пред другом в проступках и молитесь друг за друга, чтобы исцелиться: много может усиленная молитва праведного.\n\nПослание Иакова 5:16</blockquote>', parse_mode='HTML', disable_web_page_preview=True)
+	bot.send_message(-1002408173767, f"<b>Исповедание греха:\n\nИмя: </b><i>{name}</i>\n\n<b>Исповедь: </b><i>{confession}</i>", parse_mode='HTML')
 #/confession
 
 #buttons
