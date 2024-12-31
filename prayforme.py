@@ -89,9 +89,12 @@ def confession(message):
 
 def send_confession(message):
 	confession = message.text.strip()
+	user = message.from_user
+	userid = message.from_user.id
 	name = user_data.get(message.chat.id, {}).get('name', 'Не указано')
+	username = user.username if user.username else userid
 	bot.send_message(message.chat.id, '<b>Ваша исповедь записана и передана админу 👼. Вы можете помолиться за других, как сказано:</b> \n\n<blockquote>Признавайтесь друг пред другом в проступках и молитесь друг за друга, чтобы исцелиться: много может усиленная молитва праведного.\n\nПослание Иакова 5:16</blockquote>', parse_mode='HTML', disable_web_page_preview=True)
-	bot.send_message(-1002408173767, f"<b>Исповедание греха:\n\nИмя: </b><i>{name}</i>\n\n<b>Исповедь: </b><i>{confession}</i>", parse_mode='HTML')
+	bot.send_message(-1002408173767, f"<b>Исповедание греха:\n\nИмя: </b><i>{name}</i>\n\n<b>Юзер: </b><i>{username}</i>\n\n<b>Исповедь: </b><i>{confession}</i>", parse_mode='HTML')
 #/confession
 
 #buttons
