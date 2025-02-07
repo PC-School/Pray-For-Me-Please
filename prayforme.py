@@ -5,8 +5,8 @@ from telebot import types
 user_data = {}
 user_messages = {}
 
-bot = telebot.TeleBot('7916731915:AAHZxwTk_wDzb7vbmOhylKg8rVnjuZ2KF0Y') #test
-#bot = telebot.TeleBot('7839745229:AAGj_wwKyuRtVEc23RzZ3I8d1ZgsBXX0qgA') #main
+#bot = telebot.TeleBot('7916731915:AAHZxwTk_wDzb7vbmOhylKg8rVnjuZ2KF0Y') #test
+bot = telebot.TeleBot('7839745229:AAGj_wwKyuRtVEc23RzZ3I8d1ZgsBXX0qgA') #main
 #/main
 
 #start
