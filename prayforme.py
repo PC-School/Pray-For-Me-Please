@@ -1,14 +1,12 @@
 #main
 import telebot
 from telebot import types
-from pyTelegramBotCAPTCHA import CaptchaManager
 
 user_data = {}
 user_messages = {}
 
-#bot = telebot.TeleBot('7916731915:AAHZxwTk_wDzb7vbmOhylKg8rVnjuZ2KF0Y') #test
-bot = telebot.TeleBot('7839745229:AAGj_wwKyuRtVEc23RzZ3I8d1ZgsBXX0qgA') #main
-captcha_manager = CaptchaManager(bot.get_me().id, default_timeout=90)
+bot = telebot.TeleBot('7916731915:AAHZxwTk_wDzb7vbmOhylKg8rVnjuZ2KF0Y') #test
+#bot = telebot.TeleBot('7839745229:AAGj_wwKyuRtVEc23RzZ3I8d1ZgsBXX0qgA') #main
 #/main
 
 #start
